@@ -36,14 +36,14 @@ namespace MasterMind_v2
             return this.random.Next(min, max);
         }
         public void run()
-        {   tentativas = ArrayIntToString(Jogada);
+        {   
             AddCores();
             SorteioCores();
             PedirEscolha();
+            tentativas = ArrayIntToString(Jogada);
             while (numero_tentativas < numero_tentativas_max)
             {   
-                
-                
+                               
                 if (!VerificarGanhou(VerificarJogada(Jogada, DesafioCores)))
                 {   numero_tentativas++;
                     output_solucao_jogador = ArrayIntToString(OutputSolucaoJogador(VerificarJogada(Jogada, DesafioCores)));
@@ -72,9 +72,9 @@ namespace MasterMind_v2
                if (i == 0)
                     cores = $"[{BibCores[DesafioCores[i]]} ";
                else if (i > 0 && i < DesafioCores.Length - 1)
-                    cores += $",{BibCores[DesafioCores[i]]}, ";
+                    cores += $",{BibCores[DesafioCores[i]]} ";
                 else
-                    cores += $"{BibCores[DesafioCores[i]]}]";
+                    cores += $",{BibCores[DesafioCores[i]]}]";
             }
             return cores;
         }
@@ -219,10 +219,10 @@ namespace MasterMind_v2
                     arrayString = $"[{array[i]} ";
 
                 else if (i > 0 && i < array.Length - 1)
-                    arrayString += $",{array[i]}, ";
+                    arrayString += $",{array[i]} ";
 
                 else
-                    arrayString += $"{array[i]}]";
+                    arrayString += $",{array[i]}]";
             }
             return arrayString;
         }

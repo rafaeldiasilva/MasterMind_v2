@@ -20,9 +20,9 @@ namespace MasterMind_v2
         public override void escreverGanhou_Perdeu_Solucao(string solucaoCores, string jogada)
         {
             if (Ganhou_Perdeu)
-                Console.WriteLine($"{nome_jogador()} jogou esta seq: {jogada} e Ganhou o Jogo, a solucao era: {solucaoCores}");
+                Console.WriteLine($"{nome_jogador()} jogou isto: {jogada} e Ganhou o Jogo, a solucao era: {solucaoCores}");
             else
-                Console.WriteLine($"{nome_jogador()} jogou esta seq: {jogada} e Perdeu o Jogo, a solucao era: {solucaoCores}");
+                Console.WriteLine($"{nome_jogador()} jogou isto: {jogada} e Perdeu o Jogo, a solucao era: {solucaoCores}");
 
         }
 
