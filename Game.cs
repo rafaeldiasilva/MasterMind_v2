@@ -13,17 +13,17 @@ namespace MasterMind_v2
         int tamanho_array_solucao, numero_tentativas, numero_tentativas_max;
         int[] DesafioCores, Jogada;
         readonly string[] CORES;
-        public string tentativas { get; set; }
-        public string output_solucao_jogador { get; set; }
+        public string[] tentativas { get; set; }
+        public string[] output_solucao_jogador { get; set; }
         public virtual bool Ganhou_Perdeu { get; set; }
 
     public Game()
         {
-            tentativas = "";
-            output_solucao_jogador = "";
-            numero_tentativas_max = 2;
+            numero_tentativas_max = 10;
             tamanho_array_solucao = 4;
             numero_tentativas = 1;
+            tentativas = new string[numero_tentativas_max];
+            output_solucao_jogador = new string[numero_tentativas_max];
             DesafioCores = new int[tamanho_array_solucao];
             Jogada = new int[tamanho_array_solucao];
             CORES = new string[]{ "Azul", "Verde", "Amarelo", "Vermelho", "Castanho", "Rosa", "Roxo", "Laranja", "Ameixa", "Preto" };
@@ -40,14 +40,15 @@ namespace MasterMind_v2
             AddCores();
             SorteioCores();
             PedirEscolha();
-            tentativas = ArrayIntToString(Jogada);
+            
             while (numero_tentativas < numero_tentativas_max)
             {   
-                               
+                 tentativas[numero_tentativas] = ArrayIntToString(Jogada);
+                
                 if (!VerificarGanhou(VerificarJogada(Jogada, DesafioCores)))
-                {   numero_tentativas++;
-                    output_solucao_jogador = ArrayIntToString(OutputSolucaoJogador(VerificarJogada(Jogada, DesafioCores)));
-                    
+                {   
+                    output_solucao_jogador[numero_tentativas] = ArrayIntToString(OutputSolucaoJogador(VerificarJogada(Jogada, DesafioCores)));
+                    numero_tentativas++;
                     ImprimirHistoricoJogada(tentativas, output_solucao_jogador);
                     
                     PedirEscolha();
@@ -58,7 +59,6 @@ namespace MasterMind_v2
                     break;
                 }
             }
-            tentativas = ArrayIntToString(Jogada);
             if (!VerificarGanhou(VerificarJogada(Jogada, DesafioCores)) && numero_tentativas == numero_tentativas_max)
             {
                 Ganhou_Perdeu = false;
@@ -80,10 +80,14 @@ namespace MasterMind_v2
             return cores;
         }
 
-        void ImprimirHistoricoJogada(string tentativas, string output_solucao_jogador)
+        void ImprimirHistoricoJogada(string[] tentativas, string[] output_solucao_jogador)
         {
-            Console.WriteLine("\nTentativa        Resultado");
-            Console.WriteLine(tentativas + " "+ output_solucao_jogador+"\n");
+            Console.WriteLine("\n          TABULEIRO");
+            Console.Write("Tentativa         Resultado");
+            for(int i = 0; i < this.numero_tentativas; i++)
+            {
+                Console.WriteLine(tentativas[i] + "      " + output_solucao_jogador[i] + "\n");
+            }
         }
 
         void AddCores()
