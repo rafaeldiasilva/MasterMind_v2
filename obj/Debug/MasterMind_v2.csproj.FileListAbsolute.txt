@@ -1,0 +1,6 @@
+C:\Users\admin\source\repos\BootCamp\MasterMind_v2\bin\Debug\MasterMind_v2.exe.config
+C:\Users\admin\source\repos\BootCamp\MasterMind_v2\bin\Debug\MasterMind_v2.exe
+C:\Users\admin\source\repos\BootCamp\MasterMind_v2\bin\Debug\MasterMind_v2.pdb
+C:\Users\admin\source\repos\BootCamp\MasterMind_v2\obj\Debug\MasterMind_v2.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\BootCamp\MasterMind_v2\obj\Debug\MasterMind_v2.exe
+C:\Users\admin\source\repos\BootCamp\MasterMind_v2\obj\Debug\MasterMind_v2.pdb
