@@ -21,7 +21,7 @@ namespace MasterMind_v2
         {
             tentativas = "";
             output_solucao_jogador = "";
-            numero_tentativas_max = 1;
+            numero_tentativas_max = 2;
             tamanho_array_solucao = 4;
             numero_tentativas = 1;
             DesafioCores = new int[tamanho_array_solucao];
@@ -57,8 +57,9 @@ namespace MasterMind_v2
                     Ganhou_Perdeu = true;
                     break;
                 }
-            } 
-            if(!VerificarGanhou(VerificarJogada(Jogada, DesafioCores)) && numero_tentativas == numero_tentativas_max)
+            }
+            tentativas = ArrayIntToString(Jogada);
+            if (!VerificarGanhou(VerificarJogada(Jogada, DesafioCores)) && numero_tentativas == numero_tentativas_max)
             {
                 Ganhou_Perdeu = false;
             }
